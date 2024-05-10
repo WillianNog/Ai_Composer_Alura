@@ -1,0 +1,104 @@
+/* Estilos gerais */
+body {
+    font-family: "Poetsen One", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('Assets/texture-treble-clef-dark-background-isolated-generative-ai.jpg');   
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    /* background-color: #142e79; */
+    background: linear-gradient(to bottom , rgb(23, 30, 116),#0e0c1100);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.849); /* Cor de fundo com transparência */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #142e79;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    background: linear-gradient(to bottom , #1e121400  , rgb(18, 26, 107));    
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos específicos para o resultado */
+#resultado {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.836); /* Cor de fundo com transparência */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5rem;
+}
+
+/* Animação de aguardando */
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+}
+
+.waiting {
+    display: none; /* Começa desativado */
+    animation: pulse 1.5s infinite;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente de Composição Musical</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">    
+</head>
+<body>
+    <header>
+        <h1>AI Composer</h1>
+    </header>
+    <main>
+        <form id="music-form" method="POST">
+            <div class="form-group">
+                <label for="genre">Gênero Musical:</label>
+                <select name="genre" id="genre">
+                    <option value="axe">Axé</option>
+                    <option value="blues">Blues</option>
+                    <option value="country">Country</option>
+                    <option value="electronic">Eletrônica</option>
+                    <option value="forro">Forró</option>
+                    <option value="funk">Funk</option>
+                    <option value="hiphop">Hip Hop</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="metal">Metal</option>
+                    <option value="moda_de_viola">Moda de Viola</option>
+                    <option value="mpb">MPB</option>
+                    <option value="pagode">Pagode</option>
+                    <option value="pop">Pop</option>
+                    <option value="rap">Rap</option>
+                    <option value="reggae">Reggae</option>
+                    <option value="rock">Rock</option>
+                    <option value="sertanejo">Sertanejo</option>
+                    <option value="samba">Samba</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subgenre">Subgênero:</label>
+                <input type="text" name="subgenre" id="subgenre" placeholder="Ex: Rock alternativo, Rock clássico, Rock progressivo">
+            </div>
+            <div class="form-group">
+                <label for="rhythm">Ritmo:</label>
+                <select name="rhythm" id="rhythm">
+                    <option value="very_slow">Muito Lento</option>
+                    <option value="slow">Lento</option>
+                    <option value="medium">Médio</option>
+                    <option value="fast">Rápido</option>
+                    <option value="very_fast">Muito Rápido</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mood">Clima:</label>
+                <select name="mood" id="mood">
+                    <option value="soft">Suave</option>
+                    <option value="energetic">Energético</option>
+                    <option value="melancholic">Melancólico</option>
+                    <option value="upbeat">Animado</option>
+                    <option value="chill">Relaxante</option>
+                    <option value="sensual">Sensual</option>
+                    <option value="mysterious">Misterioso</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="keywords">Palavras-Chave:</label>
+                <textarea name="keywords" id="keywords" rows="4" placeholder="Ex: Vida, Paixão Ardente, Bebida, Lágrimas de felicidade ..."></textarea>
+            </div>
+            <button type="submit">Gerar Letra</button>
+            <span id="waiting" class="waiting">Aguardando...</span>
+        </form>
+        <div id="resultado"></div>
+    </main>
+    <footer>
+        <p>Desenvolvido por Willian Nogueira</p>
+    </footer>
+
+    <script>
+        document.getElementById('music-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Obtém os dados do formulário
+            var formData = new FormData(this);
+
+            // Exibe a mensagem de "aguardando"
+            document.getElementById('waiting').style.display = 'inline-block';
+
+            // Envia uma requisição POST para a rota Flask '/gerar_letra'
+            fetch('/gerar_letra', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json()) // Converte a resposta para JSON
+            .then(data => {
+                // Oculta a mensagem de "aguardando"
+                document.getElementById('waiting').style.display = 'none';
+
+                // Exibe o resultado no elemento "resultado"
+                document.getElementById('resultado').innerText = data.letra;
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                // Em caso de erro, oculta a mensagem de "aguardando"
+                document.getElementById('waiting').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
