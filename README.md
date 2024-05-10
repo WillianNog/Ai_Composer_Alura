@@ -39,10 +39,10 @@ Este projeto é um Assistente de Composição Musical que utiliza inteligência 
 
 
 ### Autor 👨‍💻
- Desenvolvido por Willian Nogueira.
+Desenvolvido por Willian Nogueira.
 
 ### Observação 🔍
-Certifique de configurar a chave da API do Google GenerativeAI no arquivo `app.py` antes de executar a aplicação.
+Lembre-se de configurar a chave da API do Google GenerativeAI no arquivo `app.py` antes de executar a aplicação.
 
 
 
