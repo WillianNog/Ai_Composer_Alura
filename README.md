@@ -1,5 +1,6 @@
 ﻿## AI Composer
-
+<img src="https://camo.githubusercontent.com/c3e5603c2d6a86a3099ff66e1fa802a86aa595c034530fb93976c4520d916d8f/68747470733a2f2f6c6f676f73706e672e6f72672f646f776e6c6f61642f676f6f676c652d67656d696e692f676f6f676c652d67656d696e692d3235362e706e67"></img>
+<img src="https://avatars.githubusercontent.com/u/4975968?s=200&v=4"></img>
 
 ### Descrição ℹ️
 Este projeto é um Assistente de Composição Musical que utiliza inteligência artificial para gerar letras de músicas. Os usuários podem selecionar o gênero musical, subgênero, ritmo, clima e fornecer palavras-chave para inspirar a composição. A aplicação então utiliza essas informações para criar letras de música correspondentes ao estilo escolhido.
